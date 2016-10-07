@@ -1,0 +1,15 @@
+{
+    "HTTP_PORT": 3000,
+
+    "SESSION_OPTIONS": {
+        "secret": "Temporary",
+        "name": "sid",
+        "cookie": {
+            "path": "/",
+            "httpOnly": true,
+            "maxAge": null
+        },
+        "saveUninitialized": true,
+        "resave": true
+    }
+}
