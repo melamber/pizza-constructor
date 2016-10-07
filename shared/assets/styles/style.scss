@@ -1,6 +1,6 @@
-@import "./reset.css";
-@import "./variables";
-@import "./mixins";
+@import "reset.css";
+@import "variables.scss";
+@import "mixins.scss";
 
 //Fonts
 
@@ -49,6 +49,7 @@ aside.toppings-bar {
       padding-left: 38%;
       line-height: 40px;
       font-size: 20px;
+      z-index: 2;
       background: $sidebarBg;
     }
   }
@@ -62,8 +63,8 @@ aside.toppings-bar {
   }
 }
 .content {
-  margin-left: 20%;
-  margin-right: 20%;
+  display: inline-block;
+  width: 60%;
   padding-top: $padding*5;
   .wrap-pizza {
     padding: $padding*3;
@@ -85,6 +86,13 @@ aside.toppings-bar {
 .ui-state-highlight {
   background: $headerBg;
 }
-.pizza-examples-bar {
+aside.pizza-examples-bar {
+  @extend .toppings-bar;
   float: right;
+  li {
+    padding-left: 38%;
+    line-height: 40px;
+    font-size: 20px;
+    background: $sidebarBg;
+  }
 }

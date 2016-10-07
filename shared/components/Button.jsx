@@ -5,7 +5,6 @@ import cx from 'classnames';
 export default class Button extends Component {
     render() {
         const { className, ...otherProps } = this.props;
-
         const classes = cx('Button', className);
 
         return (

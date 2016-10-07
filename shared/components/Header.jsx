@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 
-if(process.env.BROWSER) {
-    require('./Header.less');
-}
 
 export default class Header extends Component {
 
