@@ -6,6 +6,17 @@
   position: absolute;
 }
 
+.pizza-part {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+
+  span {
+    top: 50%;
+    position: absolute;
+  }
+}
+
 .topping-item-2 {
   width: 50%;
   height: 100%;
@@ -68,13 +79,3 @@
   bottom: 0;
   right: 0;
 }
-
-.pizza-part {
-  text-align: center;
-
-  span {
-    top: 50%;
-    position: absolute;
-  }
-}
-
