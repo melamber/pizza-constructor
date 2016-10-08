@@ -6,9 +6,7 @@ import Pizza              from './Index/Pizza.jsx';
 import PizzaList          from './Index/PizzaList.jsx';
 import PizzaTitle         from './Index/PizzaTitle.jsx';
 
-if(process.env.BROWSER) {
-    require('./Index/Button.scss');
-}
+process.env.BROWSER && require('./Index/Button.scss');
 
 
 export default class App extends Component {
@@ -17,7 +15,7 @@ export default class App extends Component {
         const {toppings, pizza, pizzaList, pizzaActions} = this.props;
         const buttons = [
             ['create', 'fa-plus'],
-            ['delete', 'fa-fa-trash-o'],
+            ['delete', 'fa-trash-o'],
             ['save', 'fa-floppy-o'],
         ].map(data => {
             return (

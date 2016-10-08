@@ -5,7 +5,6 @@ export default class Pizza extends Base {
     constructor(injector, data) {
         super(injector);
 
-        this.id = undefined;
         this.__name = '';
         this.composition = [];
 

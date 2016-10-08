@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 
-if (process.env.BROWSER) {
-    require('../assets/styles/style.scss');
-}
+process.env.BROWSER && require('../assets/styles/style.scss');
+
 
 export default class App extends Component {
     static propTypes = {

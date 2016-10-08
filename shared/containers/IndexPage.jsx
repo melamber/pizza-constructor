@@ -22,13 +22,14 @@ class IndexPageContainer extends Component {
     }
 
     render() {
-        const {pizza, pizzaList, toppings} = this.props;
+        const {pizza, pizzaList, toppings, pizzaActions} = this.props;
 
         return (
             <IndexPage
                 pizza={pizza}
                 pizzaList={pizzaList}
                 toppings={toppings}
+                pizzaActions={pizzaActions}
             />
         );
     }

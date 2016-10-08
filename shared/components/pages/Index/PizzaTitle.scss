@@ -1,16 +1,6 @@
 @import "../../../assets/styles/variables";
 @import "../../../assets/styles/mixins";
-//Import font awesome
-@import "../../../assets/font-awesome/css/font-awesome.min.css";
 
-//Fonts
-@font-face {
-  font-family: 'Conv_Ubuntu-R';
-  src: url('../../../assets/fonts/Ubuntu-R.eot');
-  src: local('☺'), url('../../../assets/fonts/Ubuntu-R.woff') format('woff'), url('../../../assets/fonts/Ubuntu-R.ttf') format('truetype'), url('../../../assets/fonts/Ubuntu-R.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .pizza-name-holder {
   text-align: center;

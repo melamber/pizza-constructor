@@ -39,12 +39,12 @@ export function save(data) {
     };
 }
 
-export function get(id) {
+export function get(name) {
     return dispatch => {
         dispatch({type: PIZZA_REQUEST});
 
         return api.pizza
-            .read(id)
+            .read(name)
             .then(data => dispatch({
                 type: PIZZA_UPDATE,
                 data,

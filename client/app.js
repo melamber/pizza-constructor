@@ -1,9 +1,4 @@
-/*import $ from 'jquery';
-import jQuery from 'jquery';
-
-window.$ = $;
-window.jQuery = jQuery;
-import 'jquery-ui';*/
+import '../public/static/jquery-ui.min.js';
 
 import React            from 'react';
 import ReactDOM         from 'react-dom';
@@ -12,9 +7,6 @@ import {Router}         from 'react-router';
 import configureStore   from '../shared/store/configureStore';
 import routes           from '../shared/routes.jsx';
 import {createHistory}  from 'history';
-
-window.$ = $;
-
 
 const history = createHistory(),
       initialState = window.__INITIAL_STATE__ || {},

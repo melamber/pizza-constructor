@@ -1,12 +1,13 @@
-const webpack = require('webpack'),
-      ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path'),
+    webpack = require('webpack'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: ['babel-polyfill', './client/app.js'],
     output: {
         path: __dirname + '/public/static/build/',
         filename: 'main.js',
-        publicPath: 'static/build/',
+        publicPath: '/static/build/',
     },
     module: {
         loaders: [
@@ -41,12 +42,19 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+        }),
         new webpack.DefinePlugin({
             'process.env': {
                 BROWSER: JSON.stringify(true),
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')
             }
         }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].css'),
+        new webpack.WatchIgnorePlugin([
+            path.resolve(__dirname, './pizza_files/'),
+        ]),
     ],
 };

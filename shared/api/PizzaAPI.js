@@ -5,12 +5,12 @@ export default class PizzaAPI extends Base {
         return this.apiClient.post('pizza', params);
     }
 
-    read(id) {
-        return this.apiClient.get(`pizza/${id}`);
+    read(name) {
+        return this.apiClient.get(`pizza/${name}`);
     }
 
-    update(id, params) {
-        return this.apiClient.put(`pizza/${id}`, {}, params);
+    update(params) {
+        return this.apiClient.put('pizza', params);
     }
 
     delete(id) {

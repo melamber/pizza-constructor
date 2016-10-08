@@ -12,8 +12,6 @@ export default function renderFullHTML(componentHTML, initialState, config) {
         </head>
         <body>
             <div id="body">${componentHTML}</div>
-            <script type="text/javascript" src="${config['STATIC_URL']}/static/jquery-2.2.2.min.js"></script>
-            <script type="text/javascript" src="${config['STATIC_URL']}/static/jquery-ui.min.js"></script>
             <script type="application/javascript">
                 window.__CONFIG__ = ${JSON.stringify(config)};
                 window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};
@@ -23,6 +21,3 @@ export default function renderFullHTML(componentHTML, initialState, config) {
         </html>
     `;
 }
-
-// <script type="text/javascript" src="${config['STATIC_URL']}/static/jquery-2.2.2.min.js"></script>
-// <script type="text/javascript" src="${config['STATIC_URL']}/static/jquery-ui.min.js"></script>

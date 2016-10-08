@@ -6,8 +6,8 @@ import {
 } from '../actions/pizza';
 
 const DEFAULT_STATE = {
-    name: null,
     composition: [],
+    name: '',
     isLoading: false,
     error: false
 };
@@ -21,6 +21,7 @@ export default function pizza(state = DEFAULT_STATE, action) {
         };
     }
     case PIZZA_UPDATE: {
+        console.log(action.data);
         return {
             ...state,
             ...action.data,

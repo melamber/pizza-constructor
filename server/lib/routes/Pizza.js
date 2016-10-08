@@ -4,19 +4,19 @@ import renderPromise from '../render';
 export default class Pizza extends Base {
 
     create(req, res) {
-        const promise = this.run('pizza/Create', {params: req.body});
+        const promise = this.run('pizza/Create', req.body);
 
         renderPromise(req, res, promise);
     }
 
     read(req, res) {
-        const promise = this.run('pizza/Read', {id: req.params.id});
+        const promise = this.run('pizza/Read', {name: req.params.name});
 
         renderPromise(req, res, promise);
     }
 
     update(req, res) {
-        const promise = this.run('pizza/Update', {params: req.body});
+        const promise = this.run('pizza/Update', req.body);
 
         renderPromise(req, res, promise);
     }

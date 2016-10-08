@@ -6,7 +6,7 @@ export default function (injector) {
     const routes = routesFunc(injector);
 
     router.post('/pizza', routes.pizza.create.bind(routes.pizza));
-    router.get('/pizza/:id', routes.pizza.read.bind(routes.pizza));
+    router.get('/pizza/:name', routes.pizza.read.bind(routes.pizza));
     router.put('/pizza/', routes.pizza.update.bind(routes.pizza));
     router.delete('/pizza/:id', routes.pizza.delete.bind(routes.pizza));
 

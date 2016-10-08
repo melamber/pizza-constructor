@@ -1,16 +1,6 @@
 @import "../../../assets/styles/variables";
 @import "../../../assets/styles/mixins";
-//Import font awesome
-@import "../../../assets/font-awesome/css/font-awesome.min.css";
 
-//Fonts
-@font-face {
-  font-family: 'Conv_Ubuntu-R';
-  src: url('../../../assets/fonts/Ubuntu-R.eot');
-  src: local('☺'), url('../../../assets/fonts/Ubuntu-R.woff') format('woff'), url('../../../assets/fonts/Ubuntu-R.ttf') format('truetype'), url('../../../assets/fonts/Ubuntu-R.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .pizza-base > div {
   position: absolute;
@@ -19,7 +9,6 @@
 .topping-item-2 {
   width: 50%;
   height: 100%;
-  display: none;
 }
 
 .half-left {
@@ -58,7 +47,6 @@
 .topping-item-4 {
   width: 50%;
   height: 50%;
-  display: none;
 }
 
 .left-top {
@@ -80,3 +68,13 @@
   bottom: 0;
   right: 0;
 }
+
+.pizza-part {
+  text-align: center;
+
+  span {
+    top: 50%;
+    position: absolute;
+  }
+}
+

@@ -1,13 +1,18 @@
 @import "reset.css";
 @import "variables.scss";
 @import "mixins.scss";
+//Import font awesome
+@import "../font-awesome/css/font-awesome.min.css";
 
 //Fonts
 
 @font-face {
   font-family: 'Conv_Ubuntu-R';
   src: url('../fonts/Ubuntu-R.eot');
-  src: local('☺'), url('../fonts/Ubuntu-R.woff') format('woff'), url('../fonts/Ubuntu-R.ttf') format('truetype'), url('../fonts/Ubuntu-R.svg') format('svg');
+  src: local('☺'),
+  url('../fonts/Ubuntu-R.woff') format('woff'),
+  url('../fonts/Ubuntu-R.ttf') format('truetype'),
+  url('../fonts/Ubuntu-R.svg') format('svg');
   font-weight: normal;
   font-style: normal;
 }

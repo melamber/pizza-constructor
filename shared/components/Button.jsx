@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
-import cx from 'classnames';
+import React, {Component} from 'react';
 
 
 export default class Button extends Component {
     render() {
-        const { className, ...otherProps } = this.props;
-        const classes = cx('Button', className);
+        const {className, ...otherProps} = this.props;
 
         return (
-            <button className={classes} {...otherProps}>
+            <button className={className} {...otherProps}>
                 {this.props.children}
             </button>
         );

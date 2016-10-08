@@ -1,24 +1,14 @@
 import React, {Component} from 'react';
 
 
-if(process.env.BROWSER) {
-    require('./ToppingsBar.scss');
-}
-
 export default class ToppingsBar extends Component {
 
     componentDidMount() {
-        if(process.env.BROWSER) {
-            $('.draggable').draggable();
-            $('#droppable').droppable({
-                drop(event) {
-                    if (event.target.id == 1) {
+        $('.topping').draggable();
+    }
 
-                    }
-                    $(event.target).addClass('ui-state-highlight');
-                }
-            });
-        }
+    componentDidUpdate() {
+        $('.topping').draggable();
     }
 
     render() {
@@ -28,7 +18,9 @@ export default class ToppingsBar extends Component {
         for (let i in list) {
             toppingsList.push(
                 <li key={'topping-' + i} id={i}>
-                    <div className="draggable ui-widget-content">
+                    <div className="topping draggable ui-widget-content"
+                         style={{backgroundColor: list[i].color}}
+                         data-id={list[i].id}>
                         <p>{list[i].name}</p>
                     </div>
                 </li>
