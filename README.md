@@ -21,7 +21,7 @@ Just make your own pizza!
 
 **NOTE**:
     Applications doesn't use mongodb for ease.
-    We'd preferred to use webpack instead of gulp, because in our mind one is more flexible.
-    But we can use gulp it's important;
+    We've preferred using webpack instead of gulp, because in our mind one is more flexible.
+    But we can use gulp it's important.
     We wanted to realize more functionality on a constructor pizza page in the future.
     Now it's only working current(single) pizza =).
