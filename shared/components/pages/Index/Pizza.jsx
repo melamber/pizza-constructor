@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PizzaPart          from './PizzaPart.jsx';
 import TOPPINGS           from '../../../toppings'
 import cx                 from 'classnames';
+import {Droppable}        from 'react-drag-and-drop'
 
 process.env.BROWSER && require('./Pizza.scss');
 
@@ -14,43 +15,16 @@ export default class Pizza extends Component {
         process.env.BROWSER && props.actions.get('current');
     }
 
-
-    componentDidMount() {
-        $('.pizza-part').draggable();
-        $('#droppable').droppable({
-            drop: (event, ui) => {
-                if(!ui.draggable.hasClass('topping')) {
-                    return false;
-                }
-
-                this.props.actions.update({
-                    name: this.props.pizza.name,
-                    toppingId: ui.draggable.data('id')
-                })
-            }
-        });
-        $('body').droppable({
-            drop: (event, ui) => {
-                if(!ui.draggable.hasClass('pizza-part')) {
-                    return false;
-                }
-                this.props.actions.update({
-                    name: this.props.pizza.name,
-                    toppingId: ui.draggable[0].dataset.id,
-                    remove: true
-                })
-            }
-        });
-        // TODO we need definitely to refuse jQuery
-    }
-
-    componentDidUpdate() {
-        $('.pizza-part').draggable();
+    handleDropping(data) {
+        this.props.actions.update({
+            name: this.props.pizza.name,
+            toppingId: data.topping
+        })
     }
 
     render() {
-        const {pizza, actions: {update}} = this.props;
-        const count = pizza.composition.length;
+        const {pizza: {composition}} = this.props;
+        const count = composition.length;
         const marking = [
             [],
             [''],
@@ -58,27 +32,48 @@ export default class Pizza extends Component {
             ['third-left', 'third-bottom', 'third-right'],
             ['left-top', 'right-top', 'left-bottom', 'right-bottom'],
         ];
-        const toppings = pizza.composition.map((topId, index) => {
+        const toppings = (count != 3)
+            ? composition.map((topId, index) => {
+                return (
+                    <PizzaPart key={'pizzaPart-' + index}
+                               className={cx(
+                                   `topping-item-${count}`,
+                                   marking[count][index]
+                               )}
+                               type="part"
+                               data={topId}
+                               style={{backgroundColor: TOPPINGS[topId].color}}
+                    >
+                        <span>{TOPPINGS[topId].name}</span>
+                    </PizzaPart>
+                );
+            })
+            : composition.map((topId, index) => {
+                let style = {backgroundColor: TOPPINGS[topId].color};
             return (
                 <PizzaPart key={'pizzaPart-' + index}
                            className={cx(
                                `topping-item-${count}`,
                                marking[count][index]
                            )}
-                           style={{backgroundColor: TOPPINGS[topId].color}}
-                           data-id={parseInt(topId)}
+                           type="part"
+                           data={topId}
                 >
-                    {TOPPINGS[topId].name}
+                    <div style={style}/>
+                    <div style={style} className="second-part"/>
+                    <span>{TOPPINGS[topId].name}</span>
                 </PizzaPart>
             );
         });
 
         return (
-            <div className="wrap-pizza">
-                <div className="pizza-base ui-widget-header" id="droppable">
+            <Droppable className="wrap-pizza"
+                       types={['topping']}
+                       onDrop={this.handleDropping.bind(this)}>
+                <div className="pizza-base ui-widget-header">
                     {toppings}
                 </div>
-            </div>
+            </Droppable>
         );
     }
 }

@@ -20,19 +20,23 @@
 ul {
   list-style: none;
 }
+
 .h1 {
   color: $textColor;
   font-family: $font;
   font-size: 24px;
   text-align: center;
 }
+
 header {
   background: $headerBg;
   padding: $padding*3 $padding;
 }
+
 main {
   @include clearfix;
 }
+
 aside.toppings-bar {
   float: left;
   width: 20%;
@@ -67,30 +71,17 @@ aside.toppings-bar {
     background: $captionBgColor;
   }
 }
+
 .content {
   display: inline-block;
   width: 60%;
   padding-top: $padding*5;
-  .wrap-pizza {
-    padding: $padding*3;
-    background: $pizzaBaseBg;
-    width: 600px;
-    height: 600px;
-    margin: 0 auto;
-    overflow: hidden;
-    @include border-radius(100%);
-    position: relative;
-  }
-  .pizza-base {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    @include border-radius(100%);
-  }
 }
+
 .ui-state-highlight {
   background: $headerBg;
 }
+
 aside.pizza-examples-bar {
   @extend .toppings-bar;
   float: right;

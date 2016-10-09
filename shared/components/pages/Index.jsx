@@ -5,11 +5,20 @@ import ToppingsBar        from './Index/ToppingsBar.jsx';
 import Pizza              from './Index/Pizza.jsx';
 import PizzaList          from './Index/PizzaList.jsx';
 import PizzaTitle         from './Index/PizzaTitle.jsx';
+import {Droppable}        from 'react-drag-and-drop'
 
 process.env.BROWSER && require('./Index/Button.scss');
 
 
 export default class App extends Component {
+
+    handleDropping(data) {
+        this.props.pizzaActions.update({
+            name: this.props.pizza.name,
+            toppingId: data.part,
+            remove: true
+        })
+    }
 
     render() {
         const {toppings, pizza, pizzaList, pizzaActions} = this.props;
@@ -29,15 +38,18 @@ export default class App extends Component {
         return (
             <div>
                 <Header/>
-                <main>
-                    <ToppingsBar list={toppings}/>
-                    <div className="content">
-                        <PizzaTitle pizza={pizza}/>
-                        <Pizza pizza={pizza} actions={pizzaActions}/>
-                        <div className="buttons-holder">{buttons}</div>
-                    </div>
-                    <PizzaList list={pizzaList} actions={pizzaActions}/>
-                </main>
+                <Droppable types={['part']}
+                           onDrop={this.handleDropping.bind(this)}>
+                    <main>
+                        <ToppingsBar list={toppings}/>
+                        <div className="content">
+                            <PizzaTitle pizza={pizza}/>
+                            <Pizza pizza={pizza} actions={pizzaActions}/>
+                            <div className="buttons-holder">{buttons}</div>
+                        </div>
+                        <PizzaList list={pizzaList} actions={pizzaActions}/>
+                    </main>
+                </Droppable>
             </div>
         );
     }

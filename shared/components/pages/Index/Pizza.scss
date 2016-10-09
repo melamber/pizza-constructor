@@ -1,81 +1,97 @@
 @import "../../../assets/styles/variables";
 @import "../../../assets/styles/mixins";
 
+.content {
+  .wrap-pizza {
+    padding: $padding*3;
+    background: $pizzaBaseBg;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    @include border-radius(100%);
+    position: relative;
+  }
+  .pizza-base {
+    position: relative;
+    width: 600px - $padding*3*2;
+    height: 600px - $padding*3*2;
+    overflow: hidden;
+    @include border-radius(100%);
 
-.pizza-base > div {
-  position: absolute;
+    >div {
+      position: absolute;
+    }
+  }
 }
 
 .pizza-part {
-  text-align: center;
-  width: 100%;
-  height: 100%;
+  cursor: pointer;
 
   span {
+    font-family: $font;
+    color: $textColor;
     top: 50%;
+    left: 45%;
     position: absolute;
   }
 }
 
-.topping-item-2 {
-  width: 50%;
+.topping-item-1 {
+  width: 100%;
   height: 100%;
-}
-
-.half-left {
   top: 0;
   left: 0;
+  @include border-radius(100%);
+}
+
+.topping-item-2{
+  width: 50%;
+  height: 100%;
+  transform-origin: 100% 50%;
 }
 
 .half-right {
-  top: 0;
-  right: 0;
+  @include transform(rotate(180deg));
 }
 
-.topping-item-3 {
+.topping-item-3, .topping-item-4 {
+  width: 50%;
+  height: 50%;
+  transform-origin: 100% 100%;
+}
+
+.topping-item-3 > div {
   width: 100%;
   height: 100%;
+  position: absolute;
+
+  &.second-part {
+    transform-origin: 100% 100%;
+    @include transform(rotate(30deg));
+  }
 }
 
 .third-left {
-  left: -259px;
-  top: -196px;
-  @include transform (rotate(240deg) skewY(30deg));
+  @include transform(rotate(30deg));
 }
 
 .third-bottom {
-  left: -40px;
-  top: 323px;
-  @include transform(rotate(120deg) skewY(30deg));
+  @include transform(rotate(150deg));
 }
 
 .third-right {
-  right: -300px;
-  top: -127px;
-  @include transform(skewY(30deg));
-}
-
-.topping-item-4 {
-  width: 50%;
-  height: 50%;
-}
-
-.left-top {
-  top: 0;
-  left: 0;
+  @include transform(rotate(270deg));
 }
 
 .right-top {
-  top: 0;
-  right: 0;
+  @include transform(rotate(90deg));
 }
 
 .left-bottom {
-  bottom: 0;
-  left: 0;
+  @include transform(rotate(180deg));
 }
 
 .right-bottom {
-  bottom: 0;
-  right: 0;
+  @include transform(rotate(270deg));
 }

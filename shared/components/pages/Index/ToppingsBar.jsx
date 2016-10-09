@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
+import {Draggable} from 'react-drag-and-drop';
 
 
 export default class ToppingsBar extends Component {
-
-    componentDidMount() {
-        $('.topping').draggable();
-    }
-
-    componentDidUpdate() {
-        $('.topping').draggable();
-    }
 
     render() {
         const {list} = this.props,
@@ -17,13 +10,16 @@ export default class ToppingsBar extends Component {
 
         for (let i in list) {
             toppingsList.push(
-                <li key={'topping-' + i} id={i}>
-                    <div className="topping draggable ui-widget-content"
-                         style={{backgroundColor: list[i].color}}
-                         data-id={list[i].id}>
-                        <p>{list[i].name}</p>
-                    </div>
-                </li>
+                <Draggable key={'topping-' + i}
+                           type="topping"
+                           data={list[i].id}>
+                    <li>
+                        <div className="topping draggable ui-widget-content"
+                             style={{backgroundColor: list[i].color}}>
+                            <p>{list[i].name}</p>
+                        </div>
+                    </li>
+                </Draggable>
             );
         }
 

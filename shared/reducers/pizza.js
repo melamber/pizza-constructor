@@ -7,7 +7,7 @@ import {
 
 const DEFAULT_STATE = {
     composition: [],
-    name: '',
+    name: 'current',
     isLoading: false,
     error: false
 };
